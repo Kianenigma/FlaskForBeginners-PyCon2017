@@ -1,8 +1,18 @@
 <html>
-  <head>
-    <title>{{ title }}</title>
-  </head>
-  <body>
-      <h1>Hello, {{ user.name }}</h1>
-  </body>
+<head>
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>Default</title>
+  {% endif %}
+</head>
+<body>
+  <h1>Hello, {{ user.name }}</h1>
+
+  {% for post in posts %}
+  <div><p>{{ post.author.name }} says: <b>{{ post.body }}</b></p></div>
+  {% endfor %}
+
+
+</body>
 </html>

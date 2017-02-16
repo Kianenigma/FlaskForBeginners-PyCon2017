@@ -19,9 +19,22 @@ def user():
 </html>
 '''
 
-
 @app.route('/user-template')
 def user_template():
     user = {'name': 'kian'}
     title = 'PyCon'
-    return render_template('user.html', user=user, title=title)
+    posts = [
+        {
+            'author': user,
+            'body': 'a mock post'
+        },
+        {
+            'author': user,
+            'body': 'another mock post'
+        }
+    ]
+    return render_template('user.html',
+    user=user,
+    title=title,
+    posts=posts
+    )
