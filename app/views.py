@@ -1,4 +1,5 @@
 from flask import render_template
+from flask import request
 from app import app
 
 @app.route('/')
@@ -38,3 +39,12 @@ def user_template():
     title=title,
     posts=posts
     )
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    print('request',request)
+    print('method', request.method)
+    print('form', request.form)
+    print('args', request.args)
+    return render_template('login.html')
