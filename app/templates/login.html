@@ -10,6 +10,14 @@
     </div>
 
     <input type="submit" class='btn btn-block btn-info' value="Submit">
-
   </form>
+  <br>
+  <button class='btn btn-success btn-block' type="button" name="button" id="ajax"> Send AJAX </button>
+  <script type="text/javascript">
+    $("#ajax").click(function(e) {
+      $.post('/login', {foo: 'bar', data: 1}, function(data){
+        console.log(data)
+      })
+    })
+  </script>
 {% endblock %}

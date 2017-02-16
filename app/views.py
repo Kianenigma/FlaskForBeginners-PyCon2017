@@ -1,5 +1,7 @@
 from flask import render_template
+from flask import jsonify
 from flask import request
+from flask import abort
 from app import app
 
 @app.route('/')
@@ -47,4 +49,10 @@ def login():
     print('method', request.method)
     print('form', request.form)
     print('args', request.args)
-    return render_template('login.html')
+
+    if request.method == 'POST':
+        return jsonify('ok')
+    elif request.method == 'GET':
+        return render_template('login.html')
+    else:
+        abort(404)
