@@ -2,7 +2,10 @@ from flask import render_template
 from flask import jsonify
 from flask import request
 from flask import abort
+<<<<<<< HEAD
 from flask import redirect
+=======
+>>>>>>> ff6c0ef348a3cad698ed2dc8af899608260fa58b
 from app import app
 
 @app.route('/')
@@ -50,6 +53,7 @@ def login():
     print('method', request.method)
     print('form', request.form)
     print('args', request.args)
+<<<<<<< HEAD
     
     # interesting to see later
     # print('headers', request.headers)
@@ -59,5 +63,12 @@ def login():
     elif request.method == 'GET':
         return render_template('login.html')
         # return redirect("/")
+=======
+
+    if request.method == 'POST':
+        return jsonify('ok')
+    elif request.method == 'GET':
+        return render_template('login.html')
+>>>>>>> ff6c0ef348a3cad698ed2dc8af899608260fa58b
     else:
         abort(404)
