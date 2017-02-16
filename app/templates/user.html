@@ -1,18 +1,7 @@
-<html>
-<head>
-  {% if title %}
-  <title>{{ title }}</title>
-  {% else %}
-  <title>Default</title>
-  {% endif %}
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
   <h1>Hello, {{ user.name }}</h1>
-
   {% for post in posts %}
   <div><p>{{ post.author.name }} says: <b>{{ post.body }}</b></p></div>
   {% endfor %}
-
-
-</body>
-</html>
+{% endblock %}
