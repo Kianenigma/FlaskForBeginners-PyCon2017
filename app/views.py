@@ -1,6 +1,27 @@
+from flask import render_template
 from app import app
 
 @app.route('/')
-@app.route('/index')
 def index():
     return "Hello flask"
+
+@app.route('/user')
+def user():
+    user = {'name': 'kian'}
+    return '''
+<html>
+  <head>
+    <title>PyCon</title>
+  </head>
+  <body>
+    <h1>Hello, ''' + user['name'] + '''</h1>
+  </body>
+</html>
+'''
+
+
+@app.route('/user-template')
+def user_template():
+    user = {'name': 'kian'}
+    title = 'PyCon'
+    return render_template('user.html', user=user, title=title)
