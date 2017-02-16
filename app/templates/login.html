@@ -18,6 +18,12 @@
       $.post('/login', {foo: 'bar', data: 1}, function(data){
         console.log(data)
       })
+
+      $.post('/login?foo=bar', {foo: 'bar', data: 1}, function(data){
+        console.log(data)
+      })
     })
+
+
   </script>
 {% endblock %}

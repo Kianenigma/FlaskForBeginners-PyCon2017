@@ -2,6 +2,7 @@ from flask import render_template
 from flask import jsonify
 from flask import request
 from flask import abort
+from flask import redirect
 from app import app
 
 @app.route('/')
@@ -49,10 +50,14 @@ def login():
     print('method', request.method)
     print('form', request.form)
     print('args', request.args)
+    
+    # interesting to see later
+    # print('headers', request.headers)
 
     if request.method == 'POST':
-        return jsonify('ok')
+        return jsonify(status='ok')
     elif request.method == 'GET':
         return render_template('login.html')
+        # return redirect("/")
     else:
         abort(404)
